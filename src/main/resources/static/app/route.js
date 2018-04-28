@@ -33,6 +33,15 @@ angular.module('CakesApp').config(function ($stateProvider, $urlRouterProvider) 
                 controller: 'CakesController',
             }
         }
+    }).state('register', {
+        parent: 'nav',
+        url: '/register',
+        views: {
+            'content@': {
+                templateUrl: 'app/views/register.html',
+                controller: 'RegisterController'
+            }
+        }
     }).state('page-not-found', {
         parent: 'nav',
         url: '/page-not-found',
