@@ -54,7 +54,7 @@ angular.module('CakesApp')
                 $scope.message = "Cake Created";
                 init();
             }).error(function (error) {
-                $scope.message = error.message;
+                $scope.message = error.message + "\n" + error.details;
             });
         };
         $scope.submit = function () {

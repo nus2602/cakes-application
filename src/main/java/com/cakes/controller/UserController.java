@@ -7,16 +7,12 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Class contains user related endpoints
@@ -26,6 +22,24 @@ public class UserController {
 
     @Autowired
     private AppUserRepository appUserRepository;
+
+    /**
+     * This method is used for user registration. Note: user registration is not
+     * require any authentication.
+     *
+     * @param appUser
+     * @return
+     */
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public ResponseEntity<AppUser> createUser(@Valid @RequestBody AppUser appUser) {
+        if (appUserRepository.findOneByUsername(appUser.getUsername()) != null) {
+            throw new RuntimeException("Username already exist");
+        }
+        List<String> roles = new ArrayList<>();
+        roles.add("ADMIN");
+        appUser.setRoles(roles);
+        return new ResponseEntity<AppUser>(appUserRepository.save(appUser), HttpStatus.CREATED);
+    }
 
     /**
      * Method for user authentication
