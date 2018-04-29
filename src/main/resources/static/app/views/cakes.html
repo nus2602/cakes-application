@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-sm-6 ">
-        <div class="panel panel-default">
+    <div class="col-sm-12">
+        <div class="panel panel-success">
             <div class="panel-heading">Cake</div>
             <div class="panel-body">
                 <div class="col-md-12">
@@ -38,7 +38,7 @@
                                                                      ng-model="currentCake.image"
                                                                      id="image" name="image">
                         </div>
-                        <button type="submit" class="btn btn-default"
+                        <button type="submit" class="btn btn-success"
                                 ng-disabled="cakeForm.$invalid">{{buttonText}}
                         </button>
 
@@ -48,10 +48,10 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
-        <div class="panel panel-default">
+    <div class="col-sm-12">
+        <div class="panel panel-success">
             <div class="panel-heading">
-                Users
+                Cakes
                 <button type="button" class="btn btn-default btn-sm"
                         ng-click="initAdd()">
                     <span class="glyphicon glyphicon-plus"></span> New Cake
