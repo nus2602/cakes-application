@@ -29,7 +29,7 @@ public class AppUser implements UserDetails {
     private String username;
 
     @NotNull
-    @Size(min = 4, message = "Password should have at least 2 characters")
+    @Size(min = 2, message = "Password should have at least 2 characters")
     @JsonProperty(access = Access.WRITE_ONLY)
     private String password;
     @ElementCollection

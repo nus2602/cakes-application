@@ -14,7 +14,7 @@ public class Cake {
     private String id;
 
     @NotNull
-    @Size(min = 10, message = "Name should have atleast 2 characters")
+    @Size(min = 2, message = "Description should have atleast 2 characters")
     private String description;
 
     private Double price;
@@ -23,7 +23,7 @@ public class Cake {
     private Integer quantity;
 
     @NotNull
-    @Size(min = 2, message = "Name should have atleast 2 characters")
+    @Size(min = 2, message = "Image should have atleast 2 characters")
     private String image;
 
     public String getId() {
